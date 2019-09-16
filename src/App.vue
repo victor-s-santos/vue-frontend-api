@@ -9,8 +9,15 @@
     </div>
 
     <div class="container">
-
+      <ListaTarefas />
     </div>
-
   </div>
 </template>
+<script>
+import ListaTarefas from './components/ListaTarefas.vue'
+export default {
+  components:{
+    ListaTarefas
+  }
+}
+</script>
