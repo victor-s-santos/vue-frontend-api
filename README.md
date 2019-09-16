@@ -4,4 +4,4 @@
 Explorando o paradigma de programação reativa que este framework proporciona.
 
 ## Para o desenvolvimento desta aplicação serão necessários:
-* Vue Cli;
+* 
