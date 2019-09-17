@@ -23,9 +23,9 @@ export default {
     data(){
         return{
             tarefas:[
-                {id:1, titulo: 'Praticar VueJs', feito: true},
-                {id:1, titulo: 'Praticar NodeJs', feito: true},
-                {id:1, titulo: 'Praticar React-Native', feito: false}
+                // {id:1, titulo: 'Praticar VueJs', feito: true},
+                // {id:1, titulo: 'Praticar NodeJs', feito: true},
+                // {id:1, titulo: 'Praticar React-Native', feito: false}
 
             ]
         }
