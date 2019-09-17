@@ -18,11 +18,13 @@
             <TarefaUnitaria
                 v-for="tarefa in tarefas"
                 :key="tarefa.id"
-                :tarefa="tarefa"/>
+                :tarefa="tarefa"
+                @editar="selecionarTarefaEdicao"/>
         </ul>
         <li v-else>Nenhuma tarefa cadastrada!</li>
         <TarefaSalvar 
-           v-if="exibirFormulario" 
+           v-if="exibirFormulario"
+            :tarefa="tarefaSelecionada"
            @criar="criarTarefa" />
     </div>
     </div>
@@ -47,6 +49,7 @@ export default {
 
             ],
             exibirFormulario: false,
+            tarefaSelecionada: undefined,
         }
     },
     created(){
@@ -64,6 +67,14 @@ export default {
                     this.tarefas.push(response.data)
                     this.exibirFormulario = !this.exibirFormulario
                 })
+        },
+        selecionarTarefaEdicao(tarefa){
+            this.tarefaSelecionada = tarefa
+            //this.exibirFormulario = !this.exibirFormulario
+            //o problema de fazer como acima, é que surge a necessidade de se clicar duas vezes ao 
+            //permutar entre as tarefas(uma vez pra ser false, e outra pra ser true)
+            this.exibirFormulario = true
+
         }
     }
     }

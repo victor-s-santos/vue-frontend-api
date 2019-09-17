@@ -51,6 +51,12 @@ export default {
                 : 'col-sm-12'
         }
     },
+    //garante que mude o titulo da tarefa ao se permitar entre elas no momento da edição
+    watch: {
+        tarefa(tarefaNova, tarefaAntiga){
+            this.tarefaLocal = Object.assign({}, this.tarefa)
+        }
+    },
     methods:{
         salvar(event){
             this.$emit('criar', this.tarefaLocal)
