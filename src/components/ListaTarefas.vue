@@ -15,6 +15,7 @@
 import TarefaSalvar from './TarefaSalvar.vue'
 import TarefaUnitaria from './TarefaUnitaria.vue'
 
+import config from './../config/config'
 export default {
     components:{
         TarefaSalvar,
