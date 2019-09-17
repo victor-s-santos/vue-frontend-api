@@ -2,7 +2,7 @@
     <li class="list-group-item d-flex">
         <span>{{ tarefa.titulo }}</span>
         <span class="espacar"></span>
-        <button class="btn btn-sm mr-4" :class="classeCSS" :title="tituloBtnConcluido">
+        <button :class="classeCSS" :title="tituloBtnConcluido">
             <i class="fa fa-check"></i>
         </button>
         <button 
@@ -28,8 +28,8 @@ export default {
     computed:{
         classeCSS(){
             return{
-                'btn-secondary': !this.tarefa.feito,
-                'btn-sucess': this.tarefa.feito
+                'btn btn-secondary btn-sm d-block': !this.tarefa.feito,
+                'btn btn-success btn-sm d-block': this.tarefa.feito
             }
         },
         tituloBtnConcluido(){

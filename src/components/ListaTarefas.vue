@@ -25,7 +25,8 @@
         <TarefaSalvar 
            v-if="exibirFormulario"
             :tarefa="tarefaSelecionada"
-           @criar="criarTarefa" />
+           @criar="criarTarefa" 
+           @editar="editarTarefa"/>
     </div>
     </div>
 </template>
@@ -42,12 +43,7 @@ export default {
     },
     data(){
         return{
-            tarefas:[
-                // {id:1, titulo: 'Praticar VueJs', feito: true},
-                // {id:1, titulo: 'Praticar NodeJs', feito: true},
-                // {id:1, titulo: 'Praticar React-Native', feito: false}
-
-            ],
+            tarefas:[],
             exibirFormulario: false,
             tarefaSelecionada: undefined,
         }
@@ -55,7 +51,7 @@ export default {
     created(){
         axios.get(`${config.apiURL}/tarefas`)
             .then((response) => {
-                console.log('GET /tarefas',response)
+                //console.log('GET /tarefas',response)
                 this.tarefas = response.data
             })
         },
@@ -63,10 +59,23 @@ export default {
         criarTarefa(tarefa){
             axios.post(`${config.apiURL}/tarefas`, tarefa)
                 .then((response) => {
-                    console.log('POST /tarefas', response)
+                    //console.log('POST /tarefas', response)
                     this.tarefas.push(response.data)
-                    this.exibirFormulario = !this.exibirFormulario
+                    //this.exibirFormulario = !this.exibirFormulario
+                    this.resetar()
                 })
+        },
+        editarTarefa(tarefa){
+            axios.put(`${config.apiURL}/tarefas/${tarefa.id}`, tarefa)
+                .then((response) => {
+                    const indice = this.tarefas.findIndex(t => t.id === tarefa.id)
+                    this.tarefas.splice(indice, 1, tarefa)
+                    this.resetar()
+                })
+        },
+        resetar(){
+            this.tarefaSelecionada = undefined
+            this.exibirFormulario = false
         },
         selecionarTarefaEdicao(tarefa){
             this.tarefaSelecionada = tarefa

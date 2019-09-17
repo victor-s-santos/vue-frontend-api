@@ -18,8 +18,6 @@
                 <div class="form-group">
                     <label>Tarefa Concluida?</label>
                     <button
-                        type="button"
-                        class="btn btn-sm d-block"
                         :class="classeBtn"
                         @click="tarefaLocal.feito = !tarefaLocal.feito">
                         <i class="fa fa-check"></i>
@@ -51,8 +49,8 @@ export default {
     computed:{
         classeBtn(){
             return this.tarefa && this.tarefaLocal.feito
-            ? 'btn-success'
-            : 'btn-secondary'
+            ? 'btn btn-success btn-sm d-block'
+            : 'btn btn-secondary btn-sm d-block'
         },
         classeColuna(){
             return this.tarefa
@@ -68,7 +66,8 @@ export default {
     },
     methods:{
         salvar(event){
-            this.$emit('criar', this.tarefaLocal)
+            const operacao = !this.tarefa ? 'criar' : 'editar'
+            this.$emit(operacao, this.tarefaLocal)
             this.tarefaLocal = {titulo: '', feito: false}
         }
     }
