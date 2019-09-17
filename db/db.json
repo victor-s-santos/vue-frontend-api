@@ -1,19 +1,39 @@
 {
-    "tarefas":[
-        {
-            "id":1, 
-            "titulo": "Praticar VueJs", 
-            "feito": true
-        },
-        {
-            "id":2, 
-            "titulo": "Praticar NodeJs",
-             "feito": true
-        },
-        {
-            "id":3, 
-            "titulo": "Praticar React-Native",
-             "feito": false
-        }
-    ]
+  "tarefas": [
+    {
+      "id": 1,
+      "titulo": "Praticar VueJs",
+      "feito": true
+    },
+    {
+      "id": 2,
+      "titulo": "Praticar NodeJs",
+      "feito": true
+    },
+    {
+      "id": 3,
+      "titulo": "Praticar React-Native",
+      "feito": false
+    },
+    {
+      "titulo": "Amar o mozi",
+      "feito": false,
+      "id": 4
+    },
+    {
+      "titulo": "Ganhar Dinheiro",
+      "feito": false,
+      "id": 5
+    },
+    {
+      "titulo": "Comprar comida pro mozi",
+      "feito": false,
+      "id": 6
+    },
+    {
+      "titulo": "Comprar mais comida pro mozi",
+      "feito": false,
+      "id": 7
+    }
+  ]
 }
