@@ -17,7 +17,11 @@
             <div class="col-sm-2" v-if="tarefa">
                 <div class="form-group">
                     <label>Tarefa Concluida?</label>
-                    <button class="btn btn-secondary btn-sm d-block">
+                    <button
+                        type="button"
+                        class="btn btn-sm d-block"
+                        :class="classeBtn"
+                        @click="tarefaLocal.feito = !tarefaLocal.feito">
                         <i class="fa fa-check"></i>
                     </button>
                 </div>
@@ -45,6 +49,11 @@ export default {
         }
     },
     computed:{
+        classeBtn(){
+            return this.tarefa && this.tarefaLocal.feito
+            ? 'btn-success'
+            : 'btn-secondary'
+        },
         classeColuna(){
             return this.tarefa
                 ? 'col-sm-10'
