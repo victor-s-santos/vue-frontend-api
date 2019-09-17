@@ -12,6 +12,7 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 import TarefaSalvar from './TarefaSalvar.vue'
 import TarefaUnitaria from './TarefaUnitaria.vue'
 
@@ -30,7 +31,13 @@ export default {
 
             ]
         }
+    },
+    created(){
+        axios.get(`${config.apiURL}/tarefas`)
+            .then((response) => {
+                console.log(response)
+                this.tarefas = response.data
+            })
+        }
     }
-    
-}
 </script>
