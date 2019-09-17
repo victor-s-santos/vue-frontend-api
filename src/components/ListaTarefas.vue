@@ -8,7 +8,8 @@
                 :tarefa="tarefa"/>
         </ul>
         <li v-else>Nenhuma tarefa cadastrada!</li>
-        <TarefaSalvar />
+        <TarefaSalvar 
+           v-if="exibirFormulario" />
     </div>
 </template>
 <script>
@@ -29,7 +30,8 @@ export default {
                 // {id:1, titulo: 'Praticar NodeJs', feito: true},
                 // {id:1, titulo: 'Praticar React-Native', feito: false}
 
-            ]
+            ],
+            exibirFormulario: false,
         }
     },
     created(){
