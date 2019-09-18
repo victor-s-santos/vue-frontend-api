@@ -30,7 +30,6 @@
            @criar="criarTarefa" 
            @editar="editarTarefa"/>
     </div>
-    </div>
 </template>
 <script>
 import axios from 'axios'
@@ -69,7 +68,7 @@ export default {
         },
         editarTarefa(tarefa){
             axios.put(`${config.apiURL}/tarefas/${tarefa.id}`, tarefa)
-                .then((response) => {
+                .then(() => {
                     const indice = this.tarefas.findIndex(t => t.id === tarefa.id)
                     this.tarefas.splice(indice, 1, tarefa)
                     this.resetar()
@@ -79,8 +78,8 @@ export default {
             const confirmar = window.confirm(`Tem certeza que gostaria de deletar a tarefa ${tarefa.titulo}?`)
             if(confirmar){
                 axios.delete(`${config.apiURL}/tarefas/${tarefa.id}`)
-                    .then(response => {
-                        console.log(`DELETE /tarefas/${tarefa.id}`, response)
+                    .then(() => {
+                        //console.log(`DELETE /tarefas/${tarefa.id}`, response)
                         const indice = this.tarefas.findIndex(t => t.id === tarefa.id)
                         this.tarefas.splice(indice, 1)
                     })
@@ -98,7 +97,7 @@ export default {
             this.exibirFormulario = true
 
         },
-        exibirFormCriarTarefa(event){
+        exibirFormCriarTarefa(){
             if(this.tarefaSelecionada){
                 this.tarefaSelecionada = undefined
                 return

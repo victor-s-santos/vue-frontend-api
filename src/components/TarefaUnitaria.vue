@@ -45,7 +45,7 @@ export default {
         }
     },
     methods:{
-        concluirTarefa(event){
+        concluirTarefa(){
             this.$emit('concluir', Object.assign({}, this.tarefa, { feito: !this.tarefa.feito }))
         }
     }

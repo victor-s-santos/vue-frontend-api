@@ -1,19 +1,9 @@
 {
   "tarefas": [
     {
-      "titulo": "Testando",
-      "feito": false,
+      "titulo": "tarefa 4 ",
+      "feito": true,
       "id": 1
-    },
-    {
-      "titulo": "Mais uma tarefa",
-      "feito": false,
-      "id": 2
-    },
-    {
-      "titulo": "corrigido",
-      "id": 3,
-      "feito": true
     }
   ]
 }
