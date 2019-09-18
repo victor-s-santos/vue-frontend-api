@@ -19,7 +19,8 @@
                 v-for="tarefa in tarefas"
                 :key="tarefa.id"
                 :tarefa="tarefa"
-                @editar="selecionarTarefaEdicao"/>
+                @editar="selecionarTarefaEdicao"
+                @deletar="deletarTarefa"/>
         </ul>
         <li v-else>Nenhuma tarefa cadastrada!</li>
         <TarefaSalvar 
@@ -72,6 +73,17 @@ export default {
                     this.tarefas.splice(indice, 1, tarefa)
                     this.resetar()
                 })
+        },
+        deletarTarefa(tarefa){
+            const confirmar = window.confirm(`Tem certeza que gostaria de deletar a tarefa ${tarefa.titulo}?`)
+            if(confirmar){
+                axios.delete(`${config.apiURL}/tarefas/${tarefa.id}`)
+                    .then(response => {
+                        console.log(`DELETE /tarefas/${tarefa.id}`, response)
+                        const indice = this.tarefas.findIndex(t => t.id === tarefa.id)
+                        this.tarefas.splice(indice, 1)
+                    })
+            }
         },
         resetar(){
             this.tarefaSelecionada = undefined

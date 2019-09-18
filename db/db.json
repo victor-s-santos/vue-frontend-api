@@ -1,14 +1,3 @@
 {
-  "tarefas": [
-    {
-      "titulo": "Amar o mozi",
-      "feito": true,
-      "id": 1
-    },
-    {
-      "titulo": "Amar demais o mozi",
-      "feito": true,
-      "id": 2
-    }
-  ]
+  "tarefas": []
 }
