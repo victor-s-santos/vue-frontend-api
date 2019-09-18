@@ -7,7 +7,7 @@
             <div class="col-sm-2">
                 <button 
                 class="btn btn-primary-float-right"
-                @click="exibirFormulario = !exibirFormulario">
+                @click="exibirFormCriarTarefa">
                    <i class="fa fa-plus mr-2"></i>
                    <span>Criar!</span>
                 </button>
@@ -97,6 +97,13 @@ export default {
             //permutar entre as tarefas(uma vez pra ser false, e outra pra ser true)
             this.exibirFormulario = true
 
+        },
+        exibirFormCriarTarefa(event){
+            if(this.tarefaSelecionada){
+                this.tarefaSelecionada = undefined
+                return
+            }
+            this.exibirFormulario = !this.exibirFormulario
         }
     }
     }

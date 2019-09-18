@@ -7,8 +7,13 @@
     },
     {
       "titulo": "Mais uma tarefa",
-      "feito": true,
+      "feito": false,
       "id": 2
+    },
+    {
+      "titulo": "corrigido",
+      "id": 3,
+      "feito": true
     }
   ]
 }
