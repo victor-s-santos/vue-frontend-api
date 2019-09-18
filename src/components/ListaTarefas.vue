@@ -20,7 +20,8 @@
                 :key="tarefa.id"
                 :tarefa="tarefa"
                 @editar="selecionarTarefaEdicao"
-                @deletar="deletarTarefa"/>
+                @deletar="deletarTarefa"
+                @concluir="editarTarefa"/>
         </ul>
         <li v-else>Nenhuma tarefa cadastrada!</li>
         <TarefaSalvar 
