@@ -14,7 +14,7 @@
             </div>
         </div>
         
-        <ul class="list-group" v-if="tarefas.length > 0">
+        <ul class="list-group" v-if="tarefasOrdenadas.length > 0">
             <TarefaUnitaria
                 v-for="tarefa in tarefasOrdenadas"
                 :key="tarefa.id"
@@ -23,7 +23,8 @@
                 @deletar="deletarTarefa"
                 @concluir="editarTarefa"/>
         </ul>
-        <li v-else>Nenhuma tarefa cadastrada!</li>
+        <li v-else-if="!msgError">Nenhuma tarefa cadastrada!</li>
+        <div class="alert alert-danger" v-else>{{ msgError}}</div>
         <TarefaSalvar 
            v-if="exibirFormulario"
             :tarefa="tarefaSelecionada"
@@ -47,6 +48,7 @@ export default {
             tarefas:[],
             exibirFormulario: false,
             tarefaSelecionada: undefined,
+            msgError: undefined,
         }
     },
     created(){
@@ -54,6 +56,17 @@ export default {
             .then((response) => {
                 //console.log('GET /tarefas',response)
                 this.tarefas = response.data
+            }).catch(error => {
+                console.log(`Algo de errado não está certo: ${error}!`)
+                if(error.response){
+                    this.msgError = `O servidor acusou o seguinte erro: ${error.message} ${error.response.statusText}`
+                    console.log(`Erro ${error.response}`)
+                }else if(error.request){
+                    this.msgError = `Erro ao tentar se comunicar com o servidor: ${error.message}`
+                    console.log(`Erro ${error.request}`)
+                }else{
+                    this.msgError = `Erro ao fazer requisição ao servidor: ${error.message}`
+                }
             })
         },
     computed:{

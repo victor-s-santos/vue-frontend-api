@@ -1,11 +1,6 @@
 {
   "tarefas": [
     {
-      "titulo": "tarefa 6",
-      "feito": true,
-      "id": 3
-    },
-    {
       "titulo": "tarefa nova",
       "feito": true,
       "id": 4
@@ -14,6 +9,11 @@
       "titulo": "abraçar o noobão",
       "feito": true,
       "id": 5
+    },
+    {
+      "titulo": "Teste34",
+      "feito": false,
+      "id": 6
     }
   ]
 }
