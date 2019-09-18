@@ -16,7 +16,7 @@
         
         <ul class="list-group" v-if="tarefas.length > 0">
             <TarefaUnitaria
-                v-for="tarefa in tarefas"
+                v-for="tarefa in tarefasOrdenadas"
                 :key="tarefa.id"
                 :tarefa="tarefa"
                 @editar="selecionarTarefaEdicao"
@@ -56,6 +56,20 @@ export default {
                 this.tarefas = response.data
             })
         },
+    computed:{
+        tarefasOrdenadas(){
+            return this.tarefas.sort((tarefa1, tarefa2) => {//ordenando alfabeticamente pelo titulo
+                if(tarefa1.feito === tarefa2.feito){
+                    return tarefa1.titulo < tarefa2.titulo
+                    ? -1
+                    : tarefa1.titulo > tarefa2.titulo
+                        ? 1
+                        : 0
+                }
+                return tarefa1.feito - tarefa2.feito//isto já ordena por feito ou não feito
+            })
+        }
+    },
     methods:{
         criarTarefa(tarefa){
             axios.post(`${config.apiURL}/tarefas`, tarefa)

@@ -1,9 +1,19 @@
 {
   "tarefas": [
     {
-      "titulo": "tarefa 4 ",
+      "titulo": "tarefa 6",
+      "feito": false,
+      "id": 3
+    },
+    {
+      "titulo": "tarefa nova",
       "feito": true,
-      "id": 1
+      "id": 4
+    },
+    {
+      "titulo": "abraçar o noobão",
+      "feito": true,
+      "id": 5
     }
   ]
 }
