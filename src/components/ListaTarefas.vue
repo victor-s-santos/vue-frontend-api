@@ -58,7 +58,7 @@ export default {
         },
     computed:{
         tarefasOrdenadas(){
-            return this.tarefas.sort((tarefa1, tarefa2) => {//ordenando alfabeticamente pelo titulo
+            return this.tarefas.slice().sort((tarefa1, tarefa2) => {//ordenando alfabeticamente pelo titulo
                 if(tarefa1.feito === tarefa2.feito){
                     return tarefa1.titulo < tarefa2.titulo
                     ? -1

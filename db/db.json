@@ -2,7 +2,7 @@
   "tarefas": [
     {
       "titulo": "tarefa 6",
-      "feito": false,
+      "feito": true,
       "id": 3
     },
     {
