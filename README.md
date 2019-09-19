@@ -15,6 +15,21 @@
 ### ERRORs messages
 ![SAVING](images/networkerror.png?raw=true "POST")
 
+## How to run
+* clone this repository: git clone https://github.com/victor-s-santos/vue-frontend-api.git;
+
+## Frontend
+* Install the dependencies: npm install;
+
+* Run server: npm run serve;
+
+## Fake API
+* go to db directory: cd db;
+
+* Install the dependencies: npm install;
+
+* Run api server: npm run start;
+
 ## Building the frontend to access an api  
 * This repository is only to practice the reactive paradigm obtained from vuejs;
 * To practice the relationship between vuejs componnents, template and other componnents (parent and child relationship);
